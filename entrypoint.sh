@@ -1,21 +1,22 @@
 #!/bin/bash
 
-echo "╭━━━┳╮        ╭╮  ╭╮  ╭╮"
-echo "┃╭━━┫┃        ┃╰╮╭╯┃ ╭╯┃"
-echo "┃╰━━┫┃╭━━╮    ╰╮┃┃╭╯ ╰╮┃"
-echo "┃╭━━┫┃┃╭╮┃╭━━╮ ┃╰╯┃   ┃┃"
-echo "┃┃  ┃╰┫╰╯┃╰━━╯ ╰╮╭╯╭╮╭╯╰╮"
-echo "╰╯  ╰━┻━━╯      ╰╯ ╰╯╰━━╯"
-echo "Created By Fonix Hardcastle"
-echo "  https://fonix.online"
-  sleep 4
-
 cd /home/container
 
 # Replace Startup Variables
   MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
   echo ":/home/container$ ${MODIFIED_STARTUP}"
 
+
+  echo "╭━━━┳╮        ╭╮  ╭╮  ╭╮"
+  echo "┃╭━━┫┃        ┃╰╮╭╯┃ ╭╯┃"
+  echo "┃╰━━┫┃╭━━╮    ╰╮┃┃╭╯ ╰╮┃"
+  echo "┃╭━━┫┃┃╭╮┃╭━━╮ ┃╰╯┃   ┃┃"
+  echo "┃┃  ┃╰┫╰╯┃╰━━╯ ╰╮╭╯╭╮╭╯╰╮"
+  echo "╰╯  ╰━┻━━╯      ╰╯ ╰╯╰━━╯"
+  echo "Created By Fonix Hardcastle"
+  echo "  https://fonix.online"
+    sleep 4
+    
 #Run the needed setup prefs first!
   echo "I am going to Connect to the Flo NFS system and check we have the files i need!"
   echo ""
