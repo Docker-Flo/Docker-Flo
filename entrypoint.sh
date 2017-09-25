@@ -18,7 +18,13 @@ echo "DEBUG MODE NON-ACTIVE!"
     ${MODIFIED_STARTUP}
 
   if [ $? -ne 0 ]; then
-      echo "FONIX_CONTAINER_ERROR: There was an error while attempting to run the start command. Consult the All Mighty Fonix! Something went badly wrong!"
+      echo "FONIX_CONTAINER_ERROR"
+      echo "Causes for this could include:"
+      echo "      - No .jar file"
+      echo "      - Container unbale to be built"
+      echo "      - Permissions are not in order"
+      echo "Please double check log files for more information!"
+      sleep 1
       exit 1
     fi
 
