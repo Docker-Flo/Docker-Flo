@@ -13,7 +13,8 @@ echo "DEBUG MODE NON-ACTIVE!"
 
 #Going to create an Alias for the NFS share given to us by the Flo System!
     ln -s /mnt/maps /home/container/maps
-
+      sudo chown -R container /home/container
+      
 # Run the Server 
     ${MODIFIED_STARTUP}
 
