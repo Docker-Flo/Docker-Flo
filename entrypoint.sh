@@ -8,11 +8,8 @@ echo "DEBUG MODE NON-ACTIVE!"
   MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
     echo ":/home/container$ ${MODIFIED_STARTUP}"
     
-#Rouge Code!
-      rm -rf start.sh
-      cd /tmp
-      rm -rf start.sh
-      cd /home/container
+#Run start.sh File!
+      sh start.sh
 
 #Going to create an Alias for the NFS share given to us by the Flo System!
     ln -s /mnt /home/container/maps
@@ -24,8 +21,9 @@ echo "DEBUG MODE NON-ACTIVE!"
       echo "FONIX_CONTAINER_ERROR"
       echo "Causes for this could include:"
       echo "      - No .jar file"
-      echo "      - Container unbale to be built"
+      echo "      - Container unable to be built"
       echo "      - Permissions are not in order"
+      echo "      - Container is un-bailed to be built"
       echo "Please double check log files for more information!"
       sleep 1
       exit 1
