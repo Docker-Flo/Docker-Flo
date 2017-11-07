@@ -14,7 +14,8 @@ MAINTAINER Fonix Hardcastle, <me@fonix.online>
 RUN apk update \
     && apk upgrade \
     && apk add --no-cache --update curl ca-certificates zip unzip openssl openssh curl sudo git tar bash sqlite \
-    && adduser -u 0 -D -h /home/container container \
+    && adduser -u 15098 -D -h /home/container container \
+    && adduser -u 0 -D -h /root root \
     && echo "ALL            ALL = (ALL) NOPASSWD: ALL" > /etc/sudoers \
     && chown root:root /usr/bin \
     && chmod u+s /usr/bin/sudo
