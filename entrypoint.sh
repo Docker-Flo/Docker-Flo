@@ -32,4 +32,5 @@ echo "DEBUG MODE NON-ACTIVE!"
 #Tell the User Flo has detected the Container Stopped
   echo "Flo Has noticed the container has stopped, Hopefully you know this. GoodBye!"
  echo "Copying .gradle files to the NFS share"
+ mkdir /mnt/.gradle/servers/${SERVER_UUID}
  cp -r /home/container/.gradle/* /mnt/.gradle/servers/${SERVER_UUID}
