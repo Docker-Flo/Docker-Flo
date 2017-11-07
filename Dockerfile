@@ -14,7 +14,7 @@ MAINTAINER Fonix Hardcastle, <me@fonix.online>
 RUN apk update \
     && apk upgrade \
     && apk add --no-cache --update curl ca-certificates zip unzip openssl openssh curl sudo git tar bash sqlite \
-    && adduser -u -D -h /home/container container 15098 \
+    && adduser -D -h /home/container container \
     && echo "ALL            ALL = (ALL) NOPASSWD: ALL" > /etc/sudoers \
     && chown root:root /usr/bin \
     && chmod u+s /usr/bin/sudo
@@ -29,6 +29,8 @@ WORKDIR /home/container
 
 #Copy Process of the EntryPoint File
 COPY ./entrypoint.sh /entrypoint.sh
+
+EXPOSE  600:15098   
 
 #Run the entryPoint File
 CMD ["/bin/bash", "/entrypoint.sh"]
