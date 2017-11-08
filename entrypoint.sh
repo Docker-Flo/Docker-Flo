@@ -11,7 +11,7 @@ sh prerun.sh
 RestID=`cat identity.txt`
 
 #Set the container users as the panels ID
-usermod -u $RestID container
+usermod -u $RestID 1000
 
 #Remove the Temp Scripts
 rm identity.txt
