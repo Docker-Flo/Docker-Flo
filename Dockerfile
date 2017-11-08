@@ -18,7 +18,6 @@ RUN apk update \
     && echo "ALL            ALL = (ALL) NOPASSWD: ALL" > /etc/sudoers \
     && chown root:root /usr/bin \
     && chmod u+s /usr/bin/sudo
-    && chown -R container:container /home/container
 
 #User to Run the DockerFile as
 USER container
