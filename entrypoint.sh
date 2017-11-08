@@ -1,15 +1,20 @@
 #!/bin/bash
 cd /home/container
 
-#Talk about debug mode!
-echo "DEBUG MODE NON-ACTIVE!"
+#Writeback User identity
+echo "$(id -u) > identity.txt" > prerun.sh
+sh prerun.sh
+RestID=`cat identity.txt`
+
+#Fix the Containers permisson layout
+usermod -u $RestID container
+
+rm identity.txt
+rm prerun.sh
 
 # Replace Startup Variables
   MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
     echo ":/home/container$ ${MODIFIED_STARTUP}"
-
-#Fix the Containers permisson layout
-usermod -u "$(id -u)" container
 
 #Run start.sh File!
       sh start.sh
