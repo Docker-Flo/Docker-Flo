@@ -3,12 +3,17 @@ cd /home/container
 
 #Writeback User identity
 echo "$(id -u) > identity.txt" > prerun.sh
+
+#Run identity grabber
 sh prerun.sh
+
+#Set the panel ID as the Entrypoint variable
 RestID=`cat identity.txt`
 
-#Fix the Containers permisson layout
+#Set the container users as the panels ID
 usermod -u $RestID container
 
+#Remove the Temp Scripts
 rm identity.txt
 rm prerun.sh
 
