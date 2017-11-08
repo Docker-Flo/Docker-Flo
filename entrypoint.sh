@@ -41,6 +41,6 @@ rm prerun.sh
   echo "Flo Has noticed the container has stopped, Hopefully you know this. GoodBye!"
   
 #Backing up Gradle Files to the FS Storage
-  echo "Backing up
+  echo "Backing up"
     mkdir /mnt/.gradle/servers/${SERVER_UUID}
       cp -r /home/container/.gradle/* /mnt/.gradle/servers/${SERVER_UUID}
