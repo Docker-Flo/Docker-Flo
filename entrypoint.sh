@@ -1,26 +1,13 @@
 #!/bin/bash
 cd /home/container
 
-#Writeback User identity
-echo "$(id -u) > identity.txt" > prerun.sh
-
-#Run identity grabber
-sh prerun.sh
-
-#Set the panel ID as the Entrypoint variable
-RestID=`cat identity.txt`
-
-#Set the container users as the panels ID
-sudo adduser -u $RestID -D -h /home/container container
-
-#Remove the Temp Scripts
-rm identity.txt
-rm prerun.sh
+#Talk about debug mode!
+echo "DEBUG MODE NON-ACTIVE!"
 
 # Replace Startup Variables
   MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
     echo ":/home/container$ ${MODIFIED_STARTUP}"
-
+    
 #Run start.sh File!
       sh start.sh
 
@@ -44,8 +31,6 @@ rm prerun.sh
 
 #Tell the User Flo has detected the Container Stopped
   echo "Flo Has noticed the container has stopped, Hopefully you know this. GoodBye!"
-  
-#Backing up Gradle Files to the FS Storage
-  echo "Backing up"
-    mkdir /mnt/.gradle/servers/${SERVER_UUID}
-      cp -r /home/container/.gradle/* /mnt/.gradle/servers/${SERVER_UUID}
+ echo "Copying .gradle files to the NFS share"
+ mkdir /mnt/.gradle/servers/${SERVER_UUID}
+ cp -r /home/container/.gradle/* /mnt/.gradle/servers/${SERVER_UUID}
