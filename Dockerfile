@@ -27,7 +27,7 @@ ENV  HOME /home/container
 #Set the work Directory
 WORKDIR /home/container
 
-#Copy Process of the EntryPoint File
+#Copy Process of the EntryPoint File + Temps
 COPY ./entrypoint.sh /entrypoint.sh
 
 #Run the entryPoint File
