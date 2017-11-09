@@ -12,7 +12,7 @@ echo "DEBUG MODE NON-ACTIVE!"
       sh start.sh
 
 #Going to create an Alias for the NFS share given to us by the Flo System!
-    ln -s /mnt /home/container/maps
+    ln -s /mnt /home/container/maps 2> /dev/null
       
 # Run the Server 
     ${MODIFIED_STARTUP}
@@ -31,6 +31,9 @@ echo "DEBUG MODE NON-ACTIVE!"
 
 #Tell the User Flo has detected the Container Stopped
   echo "Flo Has noticed the container has stopped, Hopefully you know this. GoodBye!"
- echo "Copying .gradle files to the NFS share"
- mkdir /mnt/.gradle/servers/${SERVER_UUID}
- cp -r /home/container/.gradle/* /mnt/.gradle/servers/${SERVER_UUID}
+  
+#Copy over the Gradle information to the NFS share 
+   echo "Copying .gradle files to the NFS share"
+     mkdir /mnt/.gradle/servers/${SERVER_UUID}
+       cp -r /home/container/.gradle/* /mnt/.gradle/servers/${SERVER_UUID}
+       echo "Done! {CONTAINER STOPPED}
