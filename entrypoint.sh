@@ -18,7 +18,7 @@ cd /home/container
   if [ $? -ne 0 ]; then
       echo "FLO_SCREAM"
       echo "Causes for this could include:"
-      echo "      - No .jar file"
+      echo "      - No Jar file"
       echo "      - Container unable to be built"
       echo "      - Permissions are not in order"
       echo "      - Docker has encountered an internal issue"
@@ -28,4 +28,4 @@ cd /home/container
     fi
 
 #Tell the User Flo has detected the Container Stopped
-  echo "Flo Has noticed the container has stopped, Hopefully you know this. GoodBye!"
+  echo "Flo Has noticed the container stopped, Hopefully you know this. GoodBye!"
