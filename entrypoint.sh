@@ -12,8 +12,7 @@ echo "DEBUG MODE NON-ACTIVE!"
       sh start.sh
 
 #Going to create an Alias for the NFS share given to us by the Flo System!
-  mkdir -p /home/container/maps
-    mount /mnt /home/container/maps
+    ln -s /mnt /home/container/maps
       
 # Run the Server 
     ${MODIFIED_STARTUP}
