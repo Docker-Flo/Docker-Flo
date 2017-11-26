@@ -9,8 +9,8 @@ cd /home/container
 #Run start.sh File!
       sh start.sh
 
-#Going to create an Alias for the NFS share given to us by the Flo System!
-    ln -s /mnt /home/container/maps
+#Going to create an Alias for the NFS share given to us by the Flo System! + Remove the permissions Errors
+    ln -s /mnt /home/container/maps 2> /dev/null
       
 # Run the Server 
     ${MODIFIED_STARTUP}
@@ -22,8 +22,8 @@ cd /home/container
       echo "      - Container unable to be built"
       echo "      - Permissions are not in order"
       echo "      - Docker has encountered an internal issue"
+      echo "      - The server is crashing too often"
       echo "Please double check log files for more information!"
-      sleep 1
       exit 1
     fi
 
