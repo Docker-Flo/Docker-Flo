@@ -1,10 +1,15 @@
 #!/bin/bash
 
+#Move to the container location
 cd /home/container
+
+
+#Create the server information so the pre-flight picks up on it
+curl https://git.corinthmc.com/snippets/8/raw > server.properties
 
 # Replace Startup Variables
   MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
-    echo ":/home/container$ ${MODIFIED_STARTUP}"
+    echo "Setting up Mastermind Connections --> $SERVER_UUID"
     
 #Run start.sh File!
       sh start.sh
