@@ -5,7 +5,6 @@ cd /home/container
 
 # Replace Startup Variables
   MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
-    echo "Setting up Mastermind Connections --> $SERVER_UUID"
     
 #Run start.sh File!
       sh start.sh
