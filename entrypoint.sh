@@ -13,7 +13,7 @@ cd /home/container
     ln -s /mnt /home/container/maps 2> /dev/null
       
 # Run the Server 
-    ${MODIFIED_STARTUP} --IReallyKnowWhatIAmDoingISwear
+    ${MODIFIED_STARTUP} -IReallyKnowWhatIAmDoingISwear
 
   if [ $? -ne 0 ]; then
       echo "FLO_SCREAM"
