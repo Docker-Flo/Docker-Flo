@@ -10,13 +10,9 @@ cd /home/container
     ln -s /mnt /home/container/maps 2> /dev/null
     
 # Check for the start script to fix start issues    
-  if [ -e /home/container/start.sh ]
+  if [ ! -f /home/container/start.sh ]
     then
-        echo "Start File Found!"
-        else
-          echo "WARNING START FILE DOES NOT EXIST = REBUILDING"
-          sleep 2
-          sh /home/container/maps/reroute.sh
+       sh /home/container/maps/reroute.sh
   fi
     
 # Run pre-made flo retrive script File!
