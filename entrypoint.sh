@@ -7,7 +7,7 @@ cd /home/container
   MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
 
 # Going to create an Alias for the NFS share given to us by the Flo System! + Remove the permissions Errors
-  mkdir -p /home/container/maps
+  mkdir /home/container/maps
     ln -s /mnt /home/container/maps 2> /dev/null
     
 # Check for the start script to fix start issues    
