@@ -8,7 +8,7 @@ cd /home/container
 
 # Going to create an Alias for the NFS share given to us by the Flo System! + Remove the permissions Errors
   mkdir /home/container/maps
-    ln -s /mnt /home/container/maps 2> /dev/null
+    ln -s /mnt/ /home/container/maps 2> /dev/null
     
 # Check for the start script to fix start issues    
   if [ ! -f /home/container/start.sh ]
