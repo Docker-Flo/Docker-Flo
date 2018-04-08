@@ -5,10 +5,6 @@ cd /home/container
 
 # Replace Startup Variables
   MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
-
-# Going to create an Alias for the NFS share given to us by the Flo System! + Remove the permissions Errors
-  mkdir -p /home/container/maps
-    ln -s /mnt/* /home/container/maps/
     
 # Check for the start script to fix start issues    
   if [ ! -f /home/container/start.sh ]
@@ -18,7 +14,11 @@ cd /home/container
     
 # Run pre-made flo retrive script File!
     sh start.sh
-      
+
+# Going to create an Alias for the NFS share given to us by the Flo System! + Remove the permissions Errors
+  mkdir -p /home/container/maps
+    ln -s /mnt/* /home/container/maps/
+
 # Run the Server from Pterodactyl passthrough variables
     ${MODIFIED_STARTUP}
 
