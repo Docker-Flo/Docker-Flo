@@ -8,7 +8,7 @@ cd /home/container
       rm -rf maps
     fi
     mkdir -p /home/container/maps
-    ln -s /mnt/maps/* /home/container/maps/
+    ln -s /mnt/* /home/container/maps
 
 # Replace Startup Variables
   MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
