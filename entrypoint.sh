@@ -3,6 +3,13 @@
 # Move to the container location
 cd /home/container
 
+# Going to create an Alias for the NFS share given to us by the Flo System! + Remove the permissions Errors
+    if [ -d "maps" ]; then
+      rm -rf maps
+    fi
+    mkdir -p /home/container/maps
+    ln -s /mnt/* /home/container/maps/
+
 # Replace Startup Variables
   MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
     
@@ -14,10 +21,6 @@ cd /home/container
     
 # Run pre-made flo retrive script File!
     sh start.sh
-
-# Going to create an Alias for the NFS share given to us by the Flo System! + Remove the permissions Errors
-  mkdir -p /home/container/maps
-    ln -s /mnt/* /home/container/maps/
 
 # Run the Server from Pterodactyl passthrough variables
     ${MODIFIED_STARTUP}
