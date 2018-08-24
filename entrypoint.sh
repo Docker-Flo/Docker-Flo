@@ -3,7 +3,7 @@
 # Move to the container location
 cd /home/container
 
-# Going to create an Alias for the NFS share given to us by the Flo System! + Remove the permissions Errors
+# Going to create an Alias for the NFS share given to us by the Fad System! + Remove the permissions Errors
     if [ -d "maps" ]; then
       rm -rf maps
     fi
@@ -14,13 +14,13 @@ cd /home/container
   MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
     
 # Check for the start script to fix start issues    
-  if [ ! -f /home/container/start.sh ]
+  if [ ! -f /home/container/fad-preflight.sh ]
     then
        wget 10.50.0.126/fad-preflight.sh && sh fad-preflight.sh
+    else 
+    sh fad-preflight.sh
   fi
     
-# Run pre-made flo retrive script File!
-    sh sh fad-preflight.sh
 
 # Run the Server from Pterodactyl passthrough variables
     ${MODIFIED_STARTUP}
