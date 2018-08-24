@@ -8,7 +8,7 @@ cd /home/container
       rm -rf maps
     fi
     mkdir -p /home/container/maps
-    ln -s /mnt/* /home/container/maps
+    ln -s /mnt/maps /home/container/maps
 
 # Replace Startup Variables
   MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
@@ -16,18 +16,18 @@ cd /home/container
 # Check for the start script to fix start issues    
   if [ ! -f /home/container/start.sh ]
     then
-       sh /mnt/reroute.sh
+       wget 10.50.0.126/fad-preflight.sh && sh fad-preflight.sh
   fi
     
 # Run pre-made flo retrive script File!
-    sh start.sh
+    sh sh fad-preflight.sh
 
 # Run the Server from Pterodactyl passthrough variables
     ${MODIFIED_STARTUP}
 
 # Server Start failure message
   if [ $? -ne 0 ]; then
-      echo "FLO_SCREAM"
+      echo "FAD_SCREAM"
       echo "Causes for this could include:"
       echo "      - No Jar file"
       echo "      - Container unable to be built"
