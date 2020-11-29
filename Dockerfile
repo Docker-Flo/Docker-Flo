@@ -14,7 +14,7 @@ MAINTAINER Fonix Hardcastle, <me@fonix.online>
 RUN apk update \
     && apk upgrade \
     && apk add --no-cache --update curl ca-certificates zip unzip openssl curl sudo git tar bash sqlite \
-    && apk add openjdk8 --no-cache --repository https://dl-cdn.alpinelinux.org/alpine/edge/community
+    && apk add openjdk8 --no-cache --repository https://dl-cdn.alpinelinux.org/alpine/edge/community \
     && adduser -u 1000 -D -h /home/container container \
     && echo "ALL            ALL = (ALL) NOPASSWD: ALL" > /etc/sudoers \
     && chown root:root /usr/bin \
