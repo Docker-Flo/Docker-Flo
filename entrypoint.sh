@@ -5,7 +5,12 @@ cd /home/container
 
 # Replace Startup Variables
   MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
-    
+
+# Tell me what the Java version is....
+echo "(Hello.... you are running this java version)"
+java -version
+sleep 2
+
 # Run the Server from Pterodactyl passthrough variables
     ${MODIFIED_STARTUP}
 
