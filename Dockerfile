@@ -13,7 +13,8 @@ MAINTAINER Fonix Hardcastle, <me@fonix.online>
 #Install and update Alpine Dependencies for the CorinthMC Containers.
 RUN apk update \
     && apk upgrade \
-    && apk add --no-cache --update curl ca-certificates zip unzip openssl openssh openjdk8-jre curl sudo git tar bash sqlite \
+    && apk add --no-cache --update curl ca-certificates zip unzip openssl curl sudo git tar bash sqlite \
+    && apk add openjdk8 --no-cache --repository https://dl-cdn.alpinelinux.org/alpine/edge/community
     && adduser -u 1000 -D -h /home/container container \
     && echo "ALL            ALL = (ALL) NOPASSWD: ALL" > /etc/sudoers \
     && chown root:root /usr/bin \
